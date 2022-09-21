@@ -91,7 +91,7 @@ var elevation_options = {
   ruler: true,
 
   // Toggle chart legend filter
-  legend: true,
+  legend: false,
 
   // Toggle "leaflet-almostover" integration
   almostOver: true,
@@ -143,13 +143,18 @@ function handleZoomToggle() {
   $elDiv.style.width = `${curZoom}vw`
   // e.target.innerText = `Toggle Elevation (${curZoom}%)`
   controlElevation.redraw();
+  if(curZoom !== 100) {
+    $elWrapper.classList.add('is-scrollable');
+  } else {
+    $elWrapper.classList.remove('is-scrollable');
+  }
 }
 
 let lastTap;
 $elWrapper.addEventListener('click', () => {
   let now = new Date().getTime();
   let timesince = now - lastTap;
-  if ((timesince < 600) && (timesince > 0)){
+  if ((timesince < 800) && (timesince > 0)){
      // double tap  
     handleZoomToggle();
   }
