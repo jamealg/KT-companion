@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
+public/
+.deploy*/
+*.sublime-project
+*.sublime-workspace
+
+.vercel

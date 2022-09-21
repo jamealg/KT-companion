@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+}
+
+#map { 
+  width: 100%;
+  height: 70vh; 
+}
+
+.elevation-wrapper {
+  width: 100%;
+  overflow: scroll;
+  padding-top: 2em;
+}
+
+#elevation-wrapper > div {
+  background: #fff;
+  width: 100vw;
+}

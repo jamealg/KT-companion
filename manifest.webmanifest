@@ -1,0 +1,16 @@
+{
+  "name": "KT Companion",
+  "short_name": "KT",
+  "description": "A companion app for navigating the Knobstone Trail in southern Indiana",
+  "display": "fullscreen",
+  "background_color": "#58613e",
+  "theme_color": "#B12A34",
+  "icons": [
+    {
+      "src": "img/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html"
+}
