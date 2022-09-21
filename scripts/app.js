@@ -204,13 +204,13 @@ $elWrapper.addEventListener('click', () => {
 
 
 
-// Offline control
+// Offline control for tiles
 const control = L.control.savetiles(baseLayer, {
   // zoomlevels: [11, 12, 13, 14, 15, 16], // optional zoomlevels to save, default current zoomlevel
-  zoomlevels: [11, 12, 13],
+  zoomlevels: [11],
   confirm(layer, successCallback) {
     // eslint-disable-next-line no-alert
-    if (window.confirm(`Save ${layer._tilesforSave.length}`)) {
+    if (window.confirm(`Save ${layer._tilesforSave.length} tiles`)) {
       successCallback();
     }
   },
@@ -229,11 +229,12 @@ control.addTo(map);
 // events while saving a tile layer
 let progress, total;
 const showProgress = () => {
+  let progressPct = Math.round(progress/total*100);
   if(progress === total) {
-    flash("Save tile complete")
-  } else if(progress % 5 === 0) {
-    // show progress ever 5%
-    flash(`Save tile ${progress}%`)
+    flash("Tiles have been saved")
+  } else if(progressPct % 5 === 0) {
+    // show progress every 5%
+    flash(`Saving tiles ${progressPct}%`)
   }
 };
 
@@ -241,6 +242,7 @@ baseLayer.on('savestart', (e) => {
   progress = 0;
   total = e._tilesforSave.length;
 });
+
 baseLayer.on('savetileend', () => {
   progress += 1;     
   showProgress();

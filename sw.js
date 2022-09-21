@@ -25,7 +25,6 @@ const contentToCache = [
   'https://cdn.jsdelivr.net/npm/@raruto/leaflet-elevation@2.2.6/src/components/marker.js',
   'https://cdn.jsdelivr.net/npm/@raruto/leaflet-elevation@2.2.6/src/components/d3.js',
   'https://cdn.jsdelivr.net/npm/@raruto/leaflet-elevation@2.2.6/libs/leaflet-hotline.min.js',
-  'https://services.arcgisonline.com/',
 ];
 
 self.addEventListener('install', (e) => {
