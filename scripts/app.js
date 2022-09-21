@@ -1,30 +1,71 @@
 // Service worker
-// if ('serviceWorker' in navigator) {
-//   const x = navigator.serviceWorker.register('/sw.js').then((registration) => {
-//     console.log('Service worker registration succeeded:', registration);
-//   }, /*catch*/ (error) => {
-//     console.error(`Service worker registration failed: ${error}`);
-//   });
-// }
+
+if ('serviceWorker' in navigator) {
+  const x = navigator.serviceWorker.register('/sw.js').then((registration) => {
+    console.log('Service worker registration succeeded:', registration);
+  }, /*catch*/ (error) => {
+    console.error(`Service worker registration failed: ${error}`);
+  });
+}
+
+
+
+// util
+function flash(key) {
+  let $s = document.querySelector('[data-jam]');
+  if (!$s) {
+    let s = document.createElement('span');
+    s.setAttribute('data-jam', true);
+    s.style = `
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      background: rgba(0,0,0,0.75);
+      border-radius: 4px;
+      padding: 1em;
+      font-size: 2rem;
+      color: #fff;
+      transform: translateX(-50%);
+      transition: opacity .3s ease-out;
+      font-family: sans-serif;
+    `;
+    $s = document.body.appendChild(s);
+
+    setTimeout(()=>{
+      $s.style.opacity = 0;
+    }, 1000);
+
+    setTimeout(()=>{
+      $s.remove();
+    }, 1500);
+  }
+  $s.innerText = key;
+}
+
 
 
 // Map
 var map = L.map('map', {
   attributionControl: false,
   zoomControl: true,
-  zoomSnap: 0.1,
+  minZoom: 11,
+  maxZoom: 16,
+  // zoomSnap: 0.1,
 });
-map.getRenderer(map).options.padding = 100;
-
+// map.getRenderer(map).options.padding = 100;
+// map.on('zoomend', () => flash(`Zoom ${map.getZoom()}`));
 
 // Add locate control
 L.control.locate().addTo(map);
 
 // Tiles
-L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}.jpg', {
-attribution: ''
-}).addTo(map);
-
+let urlTemplate = 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}.jpg';
+let baseLayer = L.tileLayer
+  .offline(urlTemplate, {
+    attribution: '',
+    minZoom: 11,
+  })
+  .addTo(map);
 
 // Elevation control
 var elevation_options = {
@@ -159,4 +200,48 @@ $elWrapper.addEventListener('click', () => {
     handleZoomToggle();
   }
   lastTap = new Date().getTime();
+});
+
+
+
+// Offline control
+const control = L.control.savetiles(baseLayer, {
+  // zoomlevels: [11, 12, 13, 14, 15, 16], // optional zoomlevels to save, default current zoomlevel
+  zoomlevels: [11, 12, 13],
+  confirm(layer, successCallback) {
+    // eslint-disable-next-line no-alert
+    if (window.confirm(`Save ${layer._tilesforSave.length}`)) {
+      successCallback();
+    }
+  },
+  confirmRemoval(layer, successCallback) {
+    // eslint-disable-next-line no-alert
+    if (window.confirm('Remove all the tiles?')) {
+      successCallback();
+    }
+  },
+  saveText:
+    '<i class="fa fa-download" aria-hidden="true" title="Save tiles">Get</i>',
+  rmText: '<i class="fa fa-trash" aria-hidden="true"  title="Remove tiles">Trash</i>',
+});
+control.addTo(map);
+
+// events while saving a tile layer
+let progress, total;
+const showProgress = () => {
+  if(progress === total) {
+    flash("Save tile complete")
+  } else if(progress % 5 === 0) {
+    // show progress ever 5%
+    flash(`Save tile ${progress}%`)
+  }
+};
+
+baseLayer.on('savestart', (e) => {
+  progress = 0;
+  total = e._tilesforSave.length;
+});
+baseLayer.on('savetileend', () => {
+  progress += 1;     
+  showProgress();
 });
