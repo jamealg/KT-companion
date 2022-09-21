@@ -4,7 +4,7 @@
   "description": "A companion app for navigating the Knobstone Trail in southern Indiana",
   "display": "fullscreen",
   "background_color": "#58613e",
-  "theme_color": "#B12A34",
+  "theme_color": "#58613e",
   "icons": [
     {
       "src": "img/icon.png",
