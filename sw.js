@@ -37,8 +37,6 @@ self.addEventListener('fetch', (e) => {
   })());
 });
 
-
-
 self.addEventListener('activate', (e) => {
   // Clear out old cache
   e.waitUntil(caches.keys().then((keyList) => {
