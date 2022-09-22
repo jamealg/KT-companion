@@ -11,6 +11,7 @@ html, body {
   height: 70vh; 
 }
 
+/* elevation */
 .elevation-wrapper {
   width: 100%;
   height: 30vh;
@@ -31,4 +32,28 @@ html, body {
   background-repeat: repeat-x;
   background-size: 5px;
   background-position: 0 9px;
+}
+
+/* mile markers */
+.mile-marker {
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  width: 12.6701px;
+  height: 19px;
+  font-size: 8px;
+  font-weight: bold;
+}
+
+.is-zoom-mid .mile-marker {
+  display: flex;
+  text-shadow: 1px 1px 0 #fff, -1px -1px #fff, -1px 1px #fff, 1px -1px #fff;
+}
+
+.is-zoom-strong .mile-marker {
+  display: flex;
+  background: url('/img/markers/mile.png');
+  background-size: 100%;
+  text-shadow: none;
+  align-items: flex-start;
 }

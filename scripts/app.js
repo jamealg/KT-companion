@@ -1,12 +1,12 @@
 // Service worker
 
-if ('serviceWorker' in navigator) {
-  const x = navigator.serviceWorker.register('/sw.js').then((registration) => {
-    console.log('Service worker registration succeeded:', registration);
-  }, /*catch*/ (error) => {
-    console.error(`Service worker registration failed: ${error}`);
-  });
-}
+// if ('serviceWorker' in navigator) {
+//   const x = navigator.serviceWorker.register('/sw.js').then((registration) => {
+//     console.log('Service worker registration succeeded:', registration);
+//   }, /*catch*/ (error) => {
+//     console.error(`Service worker registration failed: ${error}`);
+//   });
+// }
 
 
 
@@ -23,7 +23,7 @@ function flash(key) {
       background: rgba(0,0,0,0.75);
       border-radius: 4px;
       padding: 1em;
-      font-size: 2rem;
+      font-size: 1rem;
       color: #fff;
       transform: translateX(-50%);
       transition: opacity .3s ease-out;
@@ -50,10 +50,22 @@ var map = L.map('map', {
   zoomControl: true,
   minZoom: 11,
   maxZoom: 16,
-  // zoomSnap: 0.1,
+  zoomSnap: 0.1,
 });
-// map.getRenderer(map).options.padding = 100;
-// map.on('zoomend', () => flash(`Zoom ${map.getZoom()}`));
+map.getRenderer(map).options.padding = 100;
+map.on('zoomend', () => {
+  // flash(`Zoom ${Math.round(map.getZoom())}`);
+  if (map.getZoom() > 12) {
+    document.body.classList.remove('is-zoom-mid');
+    document.body.classList.add('is-zoom-strong');
+  } else if (map.getZoom() > 11) {
+    document.body.classList.add('is-zoom-mid');
+    document.body.classList.remove('is-zoom-strong');
+  } else {
+    document.body.classList.remove('is-zoom-strong');
+    document.body.classList.remove('is-zoom-mid');
+  }
+});
 
 // Add locate control
 L.control.locate().addTo(map);
@@ -147,7 +159,7 @@ var elevation_options = {
   timestamps: false,
 
   // Display track waypoints: true || "markers" || "dots" || false
-  waypoints: true,
+  waypoints: false,
 
   // Toggle custom waypoint icons: true || { associative array of <sym> tags } || false
   wptIcons: {
@@ -201,6 +213,56 @@ $elWrapper.addEventListener('click', () => {
   }
   lastTap = new Date().getTime();
 });
+
+
+// GPX
+let wptIcons = {};
+for(let i=0; i < 50; i++) {
+  wptIcons[`Mile Marker ${i}`] = L.divIcon({
+    html: `${i}`,
+    className: 'mile-marker',
+    iconSize: [12.6, 19],
+    iconAnchor: [6.3, 19]
+  });
+}
+const gpxFile = 'data/knobstone-sites.gpx';
+const gif = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+const g = new L.GPX(gpxFile, {
+    async: true,
+    marker_options: {
+      startIconUrl: gif,
+      endIconUrl: gif,
+      shadowUrl: gif,
+      wptIconUrls: {
+        'Parking Area': 'img/markers/parking.png',
+        'Campground': 'img/markers/campground.png',
+        'Water Source': 'img/markers/water.png',
+      },
+      wptIcons: wptIcons,
+      iconSize: [16, 16],
+      shadowSize: [0, 0],
+      iconAnchor: [8, 16],
+      shadowAnchor: [0, 0],
+    },
+    polyline_options: {
+      distanceMarkers: {
+        offset: 1441.3712,
+        showAll: 6,
+        cssClass: 'distance-marker',
+      }
+    }
+  })
+  .on('loaded', handleGpxLoaded)
+  .on('addpoint', function(e) {
+    // console.log('addpoint', e);
+  })  .on('addline', function(e) {
+    console.log('addline', e);
+    // setTimeout(()=>map.fitBounds(e.line.getBounds()), 1000);
+  })
+  .addTo(map);
+
+function handleGpxLoaded(e) {
+}
 
 
 

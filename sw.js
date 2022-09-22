@@ -25,6 +25,7 @@ const contentToCache = [
   'https://cdn.jsdelivr.net/npm/@raruto/leaflet-elevation@2.2.6/src/components/marker.js',
   'https://cdn.jsdelivr.net/npm/@raruto/leaflet-elevation@2.2.6/src/components/d3.js',
   'https://cdn.jsdelivr.net/npm/@raruto/leaflet-elevation@2.2.6/libs/leaflet-hotline.min.js',
+  'https://cdn.jsdelivr.net/npm/leaflet-gpx@1.7.0/gpx.min.js',
 ];
 
 self.addEventListener('install', (e) => {
