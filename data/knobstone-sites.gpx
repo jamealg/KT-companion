@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="GPS Visualizer Sandbox https://www.gpsvisualizer.com/draw/" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <wpt lat="38.5380957" lon="-85.8400011">
+    <name>Pixely Knob Rd Trailhead</name>
+    <sym>Parking Area</sym>
+  </wpt>
+  <wpt lat="38.5761854" lon="-85.8735609">
+    <name>New Chapel Trailhead</name>
+    <sym>Parking Area</sym>
+  </wpt>
+  <wpt lat="38.5158702" lon="-85.8705568">
+    <name>Jackson Rd Trailhead</name>
+    <sym>Parking Area</sym>
+  </wpt>
+  <wpt lat="38.6427017" lon="-85.8858132">
+    <name>Leota Trailhead</name>
+    <sym>Parking Area</sym>
+  </wpt>
+  <wpt lat="38.6491371" lon="-85.9503579">
+    <name>Elk Creek Trailhead</name>
+    <sym>Parking Area</sym>
+  </wpt>
+  <wpt lat="38.683014" lon="-85.9752917">
+    <name>Oxley Memorial Trailhead</name>
+    <sym>Parking Area</sym>
+  </wpt>
+  <wpt lat="38.7245257" lon="-86.0327554">
+    <name>Delaney Park Trailhead</name>
+    <sym>Parking Area</sym>
+  </wpt>
+  <wpt lat="38.7136352" lon="-86.0439241">
+    <name>Spurgeon Hollow Trailhead</name>
+    <sym>Parking Area</sym>
+  </wpt>
+  <wpt lat="38.5450775" lon="-85.832448">
+    <name>Camp 10.5</name>
+    <sym>Campground</sym>
+  </wpt>
+  <wpt lat="38.5906106" lon="-85.8850193">
+    <name>Camp 18+</name>
+    <sym>Campground</sym>
+  </wpt>
+  <wpt lat="38.5975203" lon="-85.8859205">
+    <name>Camp 19.4</name>
+    <sym>Campground</sym>
+  </wpt>
+  <wpt lat="38.647235" lon="-85.943234">
+    <name>Camp ~31</name>
+    <sym>Campground</sym>
+  </wpt>
+  <wpt lat="38.6970661" lon="-85.9822226">
+    <name>Camp 39.3</name>
+    <sym>Campground</sym>
+  </wpt>
+  <wpt lat="38.6987072" lon="-85.9993029">
+    <name>Camp ~41 (before 41)</name>
+    <sym>Campground</sym>
+  </wpt>
+  <wpt lat="38.7000135" lon="-86.000011">
+    <name>Water Stash</name>
+    <sym>Water Source</sym>
+  </wpt>
+  <wpt lat="38.699779" lon="-85.9949684">
+    <name>Possible Pond (40.8)</name>
+    <sym>Water Source</sym>
+  </wpt>
+  <wpt lat="38.4685089" lon="-85.851202">
+    <name>1</name>
+    <sym>Mile Marker 1</sym>
+  </wpt>
+  <wpt lat="38.4799994" lon="-85.8467388">
+    <name>2</name>
+    <sym>Mile Marker 2</sym>
+  </wpt>
+  <wpt lat="38.4884649" lon="-85.8483696">
+    <name>3</name>
+    <sym>Mile Marker 3</sym>
+  </wpt>
+  <wpt lat="38.4991461" lon="-85.8546352">
+    <name>4</name>
+    <sym>Mile Marker 4</sym>
+  </wpt>
+  <wpt lat="38.5059302" lon="-85.8658791">
+    <name>5</name>
+    <sym>Mile Marker 5</sym>
+  </wpt>
+  <wpt lat="38.5127809" lon="-85.8615017">
+    <name>6</name>
+    <sym>Mile Marker 6</sym>
+  </wpt>
+  <wpt lat="38.5233913" lon="-85.8615875">
+    <name>7</name>
+    <sym>Mile Marker 7</sym>
+  </wpt>
+  <wpt lat="38.5288303" lon="-85.8513737">
+    <name>8</name>
+    <sym>Mile Marker 8</sym>
+  </wpt>
+  <wpt lat="38.5323217" lon="-85.8413315">
+    <name>9</name>
+    <sym>Mile Marker 9</sym>
+  </wpt>
+  <wpt lat="38.5418552" lon="-85.8389282">
+    <name>10</name>
+    <sym>Mile Marker 10</sym>
+  </wpt>
+  <wpt lat="38.5495079" lon="-85.8324051">
+    <name>11</name>
+    <sym>Mile Marker 11</sym>
+  </wpt>
+  <wpt lat="38.5590392" lon="-85.83498">
+    <name>12</name>
+    <sym>Mile Marker 12</sym>
+  </wpt>
+  <wpt lat="38.5674282" lon="-85.8289719">
+    <name>13</name>
+    <sym>Mile Marker 13</sym>
+  </wpt>
+  <wpt lat="38.5691731" lon="-85.8435631">
+    <name>14</name>
+    <sym>Mile Marker 14</sym>
+  </wpt>
+  <wpt lat="38.5777623" lon="-85.8409023">
+    <name>15</name>
+    <sym>Mile Marker 15</sym>
+  </wpt>
+  <wpt lat="38.5816539" lon="-85.8530903">
+    <name>16</name>
+    <sym>Mile Marker 16</sym>
+  </wpt>
+  <wpt lat="38.5772926" lon="-85.8673382">
+    <name>17</name>
+    <sym>Mile Marker 17</sym>
+  </wpt>
+  <wpt lat="38.5800436" lon="-85.8808136">
+    <name>18</name>
+    <sym>Mile Marker 18</sym>
+  </wpt>
+  <wpt lat="38.5919859" lon="-85.8842468">
+    <name>19</name>
+    <sym>Mile Marker 19</sym>
+  </wpt>
+  <wpt lat="38.6023164" lon="-85.8872509">
+    <name>20</name>
+    <sym>Mile Marker 20</sym>
+  </wpt>
+  <wpt lat="38.6059384" lon="-85.8809853">
+    <name>21</name>
+    <sym>Mile Marker 21</sym>
+  </wpt>
+  <wpt lat="38.6164681" lon="-85.8839893">
+    <name>22</name>
+    <sym>Mile Marker 22</sym>
+  </wpt>
+  <wpt lat="38.6239117" lon="-85.8757496">
+    <name>23</name>
+    <sym>Mile Marker 23</sym>
+  </wpt>
+  <wpt lat="38.6360478" lon="-85.8794403">
+    <name>24</name>
+    <sym>Mile Marker 24</sym>
+  </wpt>
+  <wpt lat="38.6414782" lon="-85.8844185">
+    <name>25</name>
+    <sym>Mile Marker 25</sym>
+  </wpt>
+  <wpt lat="38.6487182" lon="-85.888195">
+    <name>26</name>
+    <sym>Mile Marker 26</sym>
+  </wpt>
+  <wpt lat="38.6552201" lon="-85.8967781">
+    <name>27</name>
+    <sym>Mile Marker 27</sym>
+  </wpt>
+  <wpt lat="38.6486511" lon="-85.9042454">
+    <name>28</name>
+    <sym>Mile Marker 28</sym>
+  </wpt>
+  <wpt lat="38.6482489" lon="-85.9148884">
+    <name>29</name>
+    <sym>Mile Marker 29</sym>
+  </wpt>
+  <wpt lat="38.6478467" lon="-85.9297371">
+    <name>30</name>
+    <sym>Mile Marker 30</sym>
+  </wpt>
+  <wpt lat="38.6476456" lon="-85.9392643">
+    <name>31</name>
+    <sym>Mile Marker 31</sym>
+  </wpt>
+  <wpt lat="38.6479808" lon="-85.9468174">
+    <name>32</name>
+    <sym>Mile Marker 32</sym>
+  </wpt>
+  <wpt lat="38.6473105" lon="-85.9574604">
+    <name>33</name>
+    <sym>Mile Marker 33</sym>
+  </wpt>
+  <wpt lat="38.6492544" lon="-85.9699059">
+    <name>34</name>
+    <sym>Mile Marker 34</sym>
+  </wpt>
+  <wpt lat="38.6589735" lon="-85.9679317">
+    <name>35</name>
+    <sym>Mile Marker 35</sym>
+  </wpt>
+  <wpt lat="38.6615873" lon="-85.9789181">
+    <name>36</name>
+    <sym>Mile Marker 36</sym>
+  </wpt>
+  <wpt lat="38.6700314" lon="-85.9725666">
+    <name>37</name>
+    <sym>Mile Marker 37</sym>
+  </wpt>
+  <wpt lat="38.6802167" lon="-85.9729099">
+    <name>38</name>
+    <sym>Mile Marker 38</sym>
+  </wpt>
+  <wpt lat="38.6870507" lon="-85.9803772">
+    <name>39</name>
+    <sym>Mile Marker 39</sym>
+  </wpt>
+  <wpt lat="38.6970996" lon="-85.9829521">
+    <name>40</name>
+    <sym>Mile Marker 40</sym>
+  </wpt>
+  <wpt lat="38.7029272" lon="-86.0006332">
+    <name>42</name>
+    <sym>Mile Marker 42</sym>
+  </wpt>
+  <wpt lat="38.7019895" lon="-85.9899902">
+    <name>41</name>
+    <sym>Mile Marker 41</sym>
+  </wpt>
+  <wpt lat="38.7097591" lon="-86.007328">
+    <name>43</name>
+    <sym>Mile Marker 43</sym>
+  </wpt>
+  <wpt lat="38.7157867" lon="-86.0157394">
+    <name>44</name>
+    <sym>Mile Marker 44</sym>
+  </wpt>
+  <wpt lat="38.7237556" lon="-86.0092163">
+    <name>45</name>
+    <sym>Mile Marker 45</sym>
+  </wpt>
+  <wpt lat="38.7315898" lon="-86.0173702">
+    <name>46</name>
+    <sym>Mile Marker 46</sym>
+  </wpt>
+  <wpt lat="38.7382181" lon="-86.0250092">
+    <name>47</name>
+    <sym>Mile Marker 47</sym>
+  </wpt>
+  <wpt lat="38.7287777" lon="-86.0290432">
+    <name>48</name>
+    <sym>Mile Marker 48</sym>
+  </wpt>
+  <wpt lat="38.7188714" lon="-86.0296118">
+    <name>49</name>
+    <sym>Mile Marker 49</sym>
+  </wpt>
+  <wpt lat="38.7129906" lon="-86.0339892">
+    <name>50</name>
+    <sym>Mile Marker 50</sym>
+  </wpt>
+  <wpt lat="38.7134008" lon="-86.0439724">
+    <name>50.7</name>
+    <sym>Mile Marker</sym>
+  </wpt>
+</gpx>
