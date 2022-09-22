@@ -48,13 +48,14 @@ function flash(key) {
 var map = L.map('map', {
   attributionControl: false,
   zoomControl: true,
-  minZoom: 11,
+  minZoom: 10,
   maxZoom: 16,
   zoomSnap: 0.1,
 });
 map.getRenderer(map).options.padding = 100;
 map.on('zoomend', () => {
   // flash(`Zoom ${Math.round(map.getZoom())}`);
+  console.log(`Zoom ${Math.round(map.getZoom())}`);
   if (map.getZoom() > 12) {
     document.body.classList.remove('is-zoom-mid');
     document.body.classList.add('is-zoom-strong');
@@ -244,15 +245,8 @@ const g = new L.GPX(gpxFile, {
       iconAnchor: [8, 16],
       shadowAnchor: [0, 0],
     },
-    polyline_options: {
-      distanceMarkers: {
-        offset: 1441.3712,
-        showAll: 6,
-        cssClass: 'distance-marker',
-      }
-    }
   })
-  .on('loaded', handleGpxLoaded)
+  .on('loaded', () => {})
   .on('addpoint', function(e) {
     // console.log('addpoint', e);
   })  .on('addline', function(e) {
@@ -261,18 +255,15 @@ const g = new L.GPX(gpxFile, {
   })
   .addTo(map);
 
-function handleGpxLoaded(e) {
-}
-
 
 
 // Offline control for tiles
 const control = L.control.savetiles(baseLayer, {
   // zoomlevels: [11, 12, 13, 14, 15, 16], // optional zoomlevels to save, default current zoomlevel
-  zoomlevels: [11],
+  zoomlevels: [10, 11, 15],
   confirm(layer, successCallback) {
     // eslint-disable-next-line no-alert
-    if (window.confirm(`Save ${layer._tilesforSave.length} tiles`)) {
+    if (window.confirm(`Save ${layer._tilesforSave.length} tiles?`)) {
       successCallback();
     }
   },
@@ -282,9 +273,8 @@ const control = L.control.savetiles(baseLayer, {
       successCallback();
     }
   },
-  saveText:
-    '<i class="fa fa-download" aria-hidden="true" title="Save tiles">Get</i>',
-  rmText: '<i class="fa fa-trash" aria-hidden="true"  title="Remove tiles">Trash</i>',
+  saveText: '<small>Save</small>',
+  rmText: '<small>Clear</small>',
 });
 control.addTo(map);
 
@@ -303,6 +293,7 @@ const showProgress = () => {
 baseLayer.on('savestart', (e) => {
   progress = 0;
   total = e._tilesforSave.length;
+  flash(`Saving tiles 0%`)
 });
 
 baseLayer.on('savetileend', () => {
