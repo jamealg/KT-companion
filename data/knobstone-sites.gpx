@@ -264,8 +264,69 @@
     <name>50</name>
     <sym>Mile Marker 50</sym>
   </wpt>
-  <wpt lat="38.7134008" lon="-86.0439724">
-    <name>50.7</name>
-    <sym>Mile Marker</sym>
+
+    <wpt lat="38.4644095" lon="-85.8556223">
+    <name><![CDATA[Native American "Sign Tree" (approx area)]]></name>
+    <sym>Feature</sym>
+  </wpt>
+  <wpt lat="38.6052006" lon="-85.8809423">
+    <name><![CDATA[Native American "Sign Tree" (approx area)]]></name>
+    <sym>Feature</sym>
+  </wpt>
+  <wpt lat="38.519698" lon="-85.8596992">
+    <name><![CDATA[Round Knob & Rock Etchings]]></name>
+    <sym>Feature</sym>
+  </wpt>
+  <wpt lat="38.5303326" lon="-85.8548605">
+    <name>Tree line opens up to an established campsite with 360 view. Down the east side of the hill secondary trails lead to large overhanging rocks with more carvings</name>
+    <sym>Campground</sym>
+  </wpt>
+  <wpt lat="38.5664048" lon="-85.8312249">
+    <name>The trail gradualy leads downhill, immediately meeting a camp north of the trail, located along a cliff</name>
+    <sym>Campground</sym>
+  </wpt>
+  <wpt lat="38.5682503" lon="-85.842104">
+    <name>Camp 14-</name>
+    <sym>Campground</sym>
+  </wpt>
+  <wpt lat="38.5895372" lon="-85.8844829">
+    <name>Horse trail joins, may be difficult to traverse</name>
+    <sym>Feature</sym>
+  </wpt>
+  <wpt lat="38.60785" lon="-85.8777237">
+    <name>Large shale wall. May be water</name>
+    <sym>Feature</sym>
+  </wpt>
+  <wpt lat="38.6413274" lon="-85.8849764">
+    <name>Campsite 24+</name>
+    <sym>Campground</sym>
+  </wpt>
+  <wpt lat="38.6291084" lon="-85.8765006">
+    <name>Campsite 23.4</name>
+    <sym>Campground</sym>
+  </wpt>
+  <wpt lat="38.6160489" lon="-85.8840322">
+    <name>Large campsite right before the uphill</name>
+    <sym>Campground</sym>
+  </wpt>
+  <wpt lat="38.6488019" lon="-85.9240723">
+    <name>Camp 29.6</name>
+    <sym>Campground</sym>
+  </wpt>
+  <wpt lat="38.6480311" lon="-85.8870363">
+    <name>Camp 25.8+</name>
+    <sym>Campground</sym>
+  </wpt>
+  <wpt lat="38.6489863" lon="-85.9692192">
+    <name>Camp 33.7</name>
+    <sym>Campground</sym>
+  </wpt>
+  <wpt lat="38.6848398" lon="-85.9741545">
+    <name>Campsite (approx loc)</name>
+    <sym>Campground</sym>
+  </wpt>
+  <wpt lat="38.6859452" lon="-85.9775448">
+    <name>Campsite (approx loc.)</name>
+    <sym>Campground</sym>
   </wpt>
 </gpx>
