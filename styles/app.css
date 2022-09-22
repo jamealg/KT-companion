@@ -34,8 +34,17 @@ html, body {
   background-position: 0 9px;
 }
 
+/* markers */
+.leaflet-marker-icon {
+  opacity: 0.75;  
+}
+.is-zoom-strong .leaflet-marker-icon {
+  opacity: 1;
+}
+
 /* mile markers */
 .mile-marker {
+  opacity: 1;
   display: none;
   align-items: flex-end;
   justify-content: center;
