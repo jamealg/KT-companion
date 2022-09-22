@@ -218,7 +218,7 @@ $elWrapper.addEventListener('click', () => {
 
 // GPX
 let wptIcons = {};
-for(let i=0; i < 50; i++) {
+for(let i=0; i <= 50; i++) {
   wptIcons[`Mile Marker ${i}`] = L.divIcon({
     html: `${i}`,
     className: 'mile-marker',
@@ -238,6 +238,7 @@ const g = new L.GPX(gpxFile, {
         'Parking Area': 'img/markers/parking.png',
         'Campground': 'img/markers/campground.png',
         'Water Source': 'img/markers/water.png',
+        'Feature': 'img/markers/feature.png',
       },
       wptIcons: wptIcons,
       iconSize: [16, 16],
