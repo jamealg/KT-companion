@@ -188,6 +188,8 @@ var elevation_options = {
 
 // Instantiate elevation control.
 var controlElevation = L.control.elevation(elevation_options).addTo(map);
+// Overwrite fn to prevent map from being reset in PWAs (for some reason resize event fires on app blur)
+controlElevation._resetView = () => null;
 
 // Load track from url (allowed data types: "*.geojson", "*.gpx", "*.tcx")
 controlElevation.load("/data/knobstone-trail-kt.gpx");
