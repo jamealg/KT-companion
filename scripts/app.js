@@ -59,13 +59,20 @@ map.on('zoomend', () => {
   if (map.getZoom() > 12) {
     document.body.classList.remove('is-zoom-mid');
     document.body.classList.add('is-zoom-strong');
-  } else if (map.getZoom() > 11) {
+  } else if (map.getZoom() > 10.5) {
     document.body.classList.add('is-zoom-mid');
     document.body.classList.remove('is-zoom-strong');
   } else {
     document.body.classList.remove('is-zoom-strong');
     document.body.classList.remove('is-zoom-mid');
   }
+});
+
+map.on('click', function(e){
+    // var marker = new L.marker(e.latlng).addTo(map);
+  let lat = e.latlng.lat.toFixed(7);
+  let lng = e.latlng.lng.toFixed(7);
+  console.log(`<wpt lat="${lat}" lon="${lng}">`)
 });
 
 // Add locate control
@@ -76,7 +83,7 @@ let urlTemplate = 'https://services.arcgisonline.com/ArcGIS/rest/services/World_
 let baseLayer = L.tileLayer
   .offline(urlTemplate, {
     attribution: '',
-    minZoom: 11,
+    minZoom: 10,
   })
   .addTo(map);
 

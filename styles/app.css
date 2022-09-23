@@ -36,10 +36,23 @@ html, body {
 
 /* markers */
 .leaflet-marker-icon {
-  opacity: 0.75;  
+  opacity: 0;
 }
+/*.is-zoom-mid .leaflet-marker-icon,*/
 .is-zoom-strong .leaflet-marker-icon {
   opacity: 1;
+}
+img.leaflet-marker-icon {
+  width: 12px !important; 
+  height: 12px !important;
+  margin-left: -6px !important;
+  margin-top: -12px !important;
+}
+.is-zoom-strong img.leaflet-marker-icon {
+  width: 16px !important;
+  height: 16px !important;
+  margin-left: -8px !important;
+  margin-top: -16px !important;
 }
 
 /* mile markers */
