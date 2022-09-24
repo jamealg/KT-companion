@@ -1,0 +1,65 @@
+body {
+  margin: 1em;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+button {
+  padding: 1ch 1.25ch;
+}
+
+.events {
+  max-height: 40vh;
+  overflow: scroll;
+  background: lightgray;
+}
+
+.events ul {
+  padding: 0;
+  margin: 0;
+}
+
+.events__row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1ch;
+  border-bottom: 1px dotted gray;
+}
+
+.events__row__label {
+  flex: 1 0 5%;
+  font-weight: bold;
+}
+.events__row__val {
+  flex: 1 0 50%;
+}
+
+
+.controls {
+  text-align: center;
+  margin: 1em;
+}
+
+
+
+.stats {
+  padding: 1em;
+  border-bottom: 1px dotted gray;
+}
+
+.stats>div {
+  padding: 1ch;
+}
+
+input[type="number"] {
+  padding: 1ch;
+}

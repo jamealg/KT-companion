@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>KT Companion – Pace Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+    <link rel="stylesheet" href="styles/app.css" />
+    <link rel="stylesheet" href="styles/pace.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h2>...</h2>
+      <div>
+        <button data-previous-btn>&laquo;</button>
+        <button data-next-btn>&raquo;</button>
+      </div>
+    </header>
+
+    <div class="events">
+      <ul data-events-table>
+      </ul>
+    </div>
+
+    <div class="controls">
+      <button data-begin-btn>Begin</button>
+      <button data-pause-btn>Pause</button>
+      <button data-resume-btn>Resume</button>
+      <button data-end-btn>End</button>
+      <button data-reset-btn>Reset</button>
+    </div>
+
+ 
+    <div class="stats">
+      <div style="display: flex; justify-content: space-around;">
+        <div>
+          <strong>Hiking</strong>: <span data-hike-time></span>
+        </div>
+        <div>
+          <strong>Breaks</strong>: <span data-breaks-time></span>
+        </div>
+      </div>
+      <div style="text-align: center;">
+        <strong>Total</strong>: <span data-total-time></span>
+      </div>
+    </div>
+
+    <div class="stats" data-pace-row>
+      <p>
+        <label>
+          <strong>Miles Hiked</strong>: 
+          <input 
+            data-miles-hiked-input
+            type="number"
+            min="0"
+            max="100"
+            size="4"
+            value="5"
+            step=".1"
+          />
+        </label>
+      </p>
+      <p>
+        <strong>Overall Pace</strong>: 
+        <span data-overall-pace></span>
+      </p>
+      <p>
+        <strong>Hiking Pace</strong>: 
+        <span data-hiking-pace></span>
+      </p>
+    </div>
+
+    <div class="stats" data-estimate-row>
+      <p>
+        <label>
+          <strong>Miles Remaining</strong>: 
+          <input
+            data-miles-remaining-input
+            type="number"
+            min="0"
+            max="100"
+            size="4"
+            value="5"
+            step=".1"
+          />
+        </label>
+      </p>
+      <p>
+          <strong>Finish Time (Overall)</strong>:
+          <span data-est-completion-overall></span>
+      </p>
+      <p>
+          <strong>Finish Time (Hiking)</strong>:
+          <span data-est-completion-hiking></span>
+      </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.5/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.5/plugin/duration.js"></script>
+    <script src="scripts/pace.js"></script>
+  </body>
+</html>
