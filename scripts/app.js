@@ -8,8 +8,6 @@
 //   });
 // }
 
-
-
 // util
 function flash(key) {
   let $s = document.querySelector('[data-jam]');
@@ -310,3 +308,49 @@ baseLayer.on('savetileend', () => {
   progress += 1;     
   showProgress();
 });
+
+
+
+// Pace Modal
+$modalCloseBtn = document.querySelector('[data-modal-close-btn]');
+$modalCloseBtn.addEventListener('click', (e) => {
+  toggleModal()
+})
+
+function handleTimerBtnClick(evt) {
+  L.DomEvent.stopPropagation(evt);
+  toggleModal();
+}
+
+function toggleModal() {
+  if(document.body.classList.contains('modal-is-open')) {
+    document.body.classList.remove('modal-is-open')
+  } else {
+    document.body.classList.add('modal-is-open')
+  }
+}
+
+L.Control.Pace = L.Control.extend({
+    onAdd: function(map) {
+
+      var $div = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+      this.$div = $div;
+      $div.innerHTML = `
+        <a class="leaflet-bar-part leaflet-bar-part-single" title="" href="#" role="button">
+          <span class="">
+            Pace
+          </span>
+        </a>
+      `
+      L.DomEvent.on($div, 'click', handleTimerBtnClick);
+      return $div;
+    },
+
+    onRemove: function(map) {
+        L.DomEvent.off(this.$div, 'click', handleTimerBtnClick);
+    }
+});
+L.control.pace = function(opts) {
+    return new L.Control.Pace(opts);
+}
+L.control.pace({ position: 'topleft' }).addTo(map);

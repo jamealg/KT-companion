@@ -95,3 +95,59 @@ img.leaflet-marker-icon {
   text-shadow: none;
   align-items: flex-start;
 }
+
+/* modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:  rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  display: none;
+  padding: 3em 1em 1em;
+  align-items: stretch;
+  justify-content: stretch;
+}
+.modal iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.modal-is-open .modal {
+  display: flex;
+}
+.modal__dialog {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  flex: 1 0 100%;
+  background: #fff;
+  border-radius: var(--roundness);
+}
+.modal__close-btn {
+  border: 0;
+  background: var(--primary-light);
+  border-radius: var(--roundness);
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+}
+.modal__close-btn span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 13px;
+  height: 1px;
+  background: #fff;
+}
+.modal__close-btn span:nth-child(1) {
+  transform: translate(-50%, -50%) rotateZ(-45deg);
+}
+.modal__close-btn span:nth-child(2) {
+  transform: translate(-50%, -50%) rotateZ(45deg);
+}
