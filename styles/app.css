@@ -1,3 +1,13 @@
+:root {
+  --black: #393730;
+  --white: #DDE6EF;
+  --primary-dark: #58613E;
+  --primary-light: #8C8F5C;
+  --secondary: #A6BBC8;
+  --secondary-dark: #869CAF;
+  --roundness: 2px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -5,6 +15,7 @@
 html, body {
   margin: 0;
   font-family: sans-serif;
+  color: var(--black);
 }
 
 #map { 
@@ -33,6 +44,10 @@ html, body {
   background-repeat: repeat-x;
   background-size: 5px;
   background-position: 0 9px;
+}
+
+.elevation-control .background {
+  border-radius: 0;
 }
 
 /* markers */

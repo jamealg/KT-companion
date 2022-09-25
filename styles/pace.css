@@ -1,11 +1,14 @@
-body {
-  margin: 1em;
+html, body {
+  margin: 0 0.5em;
+  font-size: 12px;
+  color: var(--black);
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1ch 0;
 }
 
 h2 {
@@ -14,19 +17,31 @@ h2 {
 
 button {
   padding: 1ch 1.25ch;
+  background: var(--primary-light);
+  border: none;
+  font-weight: bold;
+  color: #fff;
+  border-radius: var(--roundness);
+}
+input[type="number"] {
+  padding: 4px;
+}
+button, input[type="number"] {
+  font-size: 1rem;
 }
 
 .events {
-  max-height: 40vh;
+  width: calc(100% + 2em - 4px);
+  margin-left: calc(-1em + 2px);
+  height: 25vh;
   overflow: scroll;
-  background: lightgray;
+  background: var(--white);
+  border-radius: var(--roundness);
 }
-
 .events ul {
   padding: 0;
   margin: 0;
 }
-
 .events__row {
   display: flex;
   align-items: center;
@@ -34,7 +49,6 @@ button {
   padding: 1ch;
   border-bottom: 1px dotted gray;
 }
-
 .events__row__label {
   flex: 1 0 5%;
   font-weight: bold;
@@ -43,23 +57,19 @@ button {
   flex: 1 0 50%;
 }
 
-
 .controls {
   text-align: center;
-  margin: 1em;
+  margin: 1em 0 0;
 }
-
-
 
 .stats {
-  padding: 1em;
+  margin: 1em 0 1em;
   border-bottom: 1px dotted gray;
 }
-
-.stats>div {
-  padding: 1ch;
+.stats:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
 }
-
-input[type="number"] {
-  padding: 1ch;
+.stats>div {
+  padding-bottom: 2ch;
 }
