@@ -8,6 +8,8 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+
+
 // util
 function flash(key) {
   let $s = document.querySelector('[data-jam]');
@@ -46,7 +48,7 @@ function flash(key) {
 var map = L.map('map', {
   attributionControl: false,
   zoomControl: false,
-  // minZoom: 10,
+  minZoom: 10,
   maxZoom: 16,
   zoomSnap: 0.1,
 });
@@ -75,15 +77,14 @@ map.on('click', function(e){
   navigator.clipboard.writeText(latlng);
 });
 
-// Add locate control
-L.control.locate().addTo(map);
+
 
 // Tiles
 let urlTemplate = 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}.jpg';
 let baseLayer = L.tileLayer
   .offline(urlTemplate, {
     attribution: '',
-    minZoom: 11,
+    // minZoom: 11,
   })
   .addTo(map);
 
