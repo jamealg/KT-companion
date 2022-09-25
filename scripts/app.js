@@ -281,7 +281,7 @@ const g = new L.GPX(gpxFile, {
 
 
 // Offline control for tiles
-const control = L.control.savetiles(baseLayer, {
+const savetilesControl = L.control.savetiles(baseLayer, {
   // zoomlevels: [11, 12, 13, 14, 15, 16], // optional zoomlevels to save, default current zoomlevel
   zoomlevels: [10, 11, 15],
   confirm(layer, successCallback) {
@@ -296,10 +296,10 @@ const control = L.control.savetiles(baseLayer, {
       successCallback();
     }
   },
-  saveText: '<small>Save</small>',
-  rmText: '<small>Clear</small>',
+  saveText: '<span style="font-size: 1.25rem">💾</span>',
+  rmText: '<span style="font-size: 1.25rem">🗑</span>',
 });
-control.addTo(map);
+savetilesControl.addTo(map);
 
 // events while saving a tile layer
 let progress, total;
@@ -352,8 +352,8 @@ L.Control.Pace = L.Control.extend({
       this.$div = $div;
       $div.innerHTML = `
         <a class="leaflet-bar-part leaflet-bar-part-single" title="" href="#" role="button">
-          <span class="">
-            Pace
+          <span style="font-size: 1.5rem;">
+            ⏱
           </span>
         </a>
       `
