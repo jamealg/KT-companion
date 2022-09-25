@@ -1,6 +1,6 @@
 // Service worker
-
-if ('serviceWorker' in navigator) {
+let loc =  document.location.hostname.toString();
+if ('serviceWorker' in navigator && !loc.includes('localhost') && !loc.includes('192.')) {
   const x = navigator.serviceWorker.register('/sw.js').then((registration) => {
     console.log('Service worker registration succeeded:', registration);
   }, /*catch*/ (error) => {
