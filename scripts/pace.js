@@ -19,7 +19,7 @@ class SimpleStore {
     }
   }
 
-  set(key,val) {
+  set(key, val) {
     if(typeof val == "object") {
       let newVal = JSON.stringify(val);
       this.store[key] = newVal;
@@ -34,6 +34,7 @@ class SimpleStore {
 
   unset(key) {
     delete this.store[key];
+    localStorage.removeItem(key);
   }
 }
 let store = new SimpleStore()
@@ -69,8 +70,8 @@ const rowTpl2 = (label, row1, row2) => (`
   </li>
 `);
 const opMetaDataTpl = {
-  milesHiked: 0.1,
-  milesRemaining: 1,
+  milesHiked: 0.001,
+  milesRemaining: 10,
 };
 
 // Elements
@@ -99,6 +100,8 @@ let $estCompletionHiking = document.querySelector('[data-est-completion-hiking]'
 
 let $milesHikedInput = document.querySelector('[data-miles-hiked-input]');
 let $milesRemainingInput = document.querySelector('[data-miles-remaining-input]');
+let $stepperPlusBtn = document.querySelectorAll('[data-stepper-plus-btn]');
+let $stepperMinusBtn = document.querySelectorAll('[data-stepper-minus-btn]');
 
 // Global State
 let day = dayjs();
@@ -131,10 +134,13 @@ $endBtn.addEventListener('click', () => {
 $resetBtn.addEventListener('click', () => {
   if(confirm("R u sure?")) {
     opData = [];
-    store.set(dayKey, opData);
+    store.unset(dayKey);
+    opMetaData = opMetaDataTpl;
+    store.unset(`${dayKey}-meta`);
     populateTable(opData);
     updateControls();
     updateStats();
+    updateMeta();
   }
 })
 
@@ -161,7 +167,6 @@ function changeDay(newDate) {
 
   opData = store.get(dayKey) || [];
   if(opData.length) {
-    console.log('Found', opData);
     populateTable(opData);
   } else {
     // No data found
@@ -173,9 +178,9 @@ function changeDay(newDate) {
 
 function updateMeta() {
   // Inputs
-  let milesHiked = opMetaData["milesHiked"] || 0;
+  let milesHiked = opMetaData["milesHiked"] || opMetaDataTpl["milesHiked"];
   $milesHikedInput.value = milesHiked;
-  let milesRemaining = opMetaData["milesRemaining"] || 0;
+  let milesRemaining = opMetaData["milesRemaining"] || opMetaDataTpl["milesRemaining"];
   $milesRemainingInput.value = milesRemaining;
 }
 
@@ -249,7 +254,7 @@ function updateControls() {
     $endBtn.style.display = "none"; 
   }
 
-  if(opData.length > 1 && lastEvent !== "end") {
+  if(opData.length > 0 && lastEvent !== "end") {
     $estimateRow.style.display = "block";
   } else {
     $estimateRow.style.display = "none";
@@ -334,6 +339,27 @@ function handleInputChange() {
 
 $milesHikedInput.addEventListener('change', handleInputChange);
 $milesRemainingInput.addEventListener('change', handleInputChange);
+$stepperPlusBtn[0].addEventListener('click', (evt) => handleStepperClick(evt, 1));
+$stepperPlusBtn[1].addEventListener('click', (evt) => handleStepperClick(evt, 1));
+$stepperMinusBtn[0].addEventListener('click', (evt) => handleStepperClick(evt, -1));
+$stepperMinusBtn[1].addEventListener('click', (evt) => handleStepperClick(evt, -1));
+
+const handleStepperClick = (evt, dir) => {
+  evt.stopPropagation();
+  let $input = evt.target.parentNode.querySelector('input[type="number"]');
+  let step = parseFloat($input.getAttribute('step')) * dir;
+  let newVal = parseFloat($input.value) + step;
+  newVal = newVal < 0 ? 0 : newVal;
+  $input.value = newVal.toFixed(2);
+
+  // Adjust the other input in the opposite direction
+  if($input.hasAttribute('data-miles-hiked-input')) {
+    $milesRemainingInput.value = (parseFloat($milesRemainingInput.value) - step).toFixed(2);
+  }
+
+  // Trigger change
+  handleInputChange();
+};
 
 
 // Init with today's date

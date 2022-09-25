@@ -25,7 +25,9 @@ button {
 }
 input[type="number"] {
   padding: 4px;
+  appearance:textfield; 
 }
+
 button, input[type="number"] {
   font-size: 1rem;
 }
