@@ -152,6 +152,16 @@ img.leaflet-marker-icon {
   transform: translate(-50%, -50%) rotateZ(45deg);
 }
 
+/* Leaflet savetiles */
+.leaflet-control.savetiles {
+  display: none;
+}
+@media screen and (orientation: landscape) {
+  .leaflet-control.savetiles {
+    display: block;
+  }
+}
+
 /* Leaflet radar */
 .leaflet-radar {
   /* from leaflet-control-layers */

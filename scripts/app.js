@@ -245,7 +245,8 @@ for(let i=0; i <= 50; i++) {
     html: `${i}`,
     className: 'mile-marker',
     iconSize: [12.6, 19],
-    iconAnchor: [6.3, 19]
+    iconAnchor: [6.3, 19],
+    popupAnchor: null,
   });
 }
 const gpxFile = 'data/knobstone-sites.gpx';
@@ -255,7 +256,7 @@ const g = new L.GPX(gpxFile, {
     marker_options: {
       startIconUrl: gif,
       endIconUrl: gif,
-      shadowUrl: gif,
+      shadowUrl: null,
       wptIconUrls: {
         'Parking Area': 'img/markers/parking.png',
         'Campground': 'img/markers/campground.png',
@@ -266,63 +267,18 @@ const g = new L.GPX(gpxFile, {
       iconSize: [16, 16],
       shadowSize: [0, 0],
       iconAnchor: [8, 16],
-      shadowAnchor: [0, 0],
+      popupAnchor: [0, -16],
     },
   })
   .on('loaded', () => {})
   .on('addpoint', function(e) {
     // console.log('addpoint', e);
-  })  .on('addline', function(e) {
-    console.log('addline', e);
+  })
+  .on('addline', function(e) {
+    // console.log('addline', e);
     // setTimeout(()=>map.fitBounds(e.line.getBounds()), 1000);
   })
   .addTo(map);
-
-
-
-// Offline control for tiles
-const savetilesControl = L.control.savetiles(baseLayer, {
-  // zoomlevels: [11, 12, 13, 14, 15, 16], // optional zoomlevels to save, default current zoomlevel
-  zoomlevels: [10, 11, 15],
-  confirm(layer, successCallback) {
-    // eslint-disable-next-line no-alert
-    if (window.confirm(`Save ${layer._tilesforSave.length} tiles?`)) {
-      successCallback();
-    }
-  },
-  confirmRemoval(layer, successCallback) {
-    // eslint-disable-next-line no-alert
-    if (window.confirm('Remove all the tiles?')) {
-      successCallback();
-    }
-  },
-  saveText: '<span style="font-size: 1.25rem">💾</span>',
-  rmText: '<span style="font-size: 1.25rem">🗑</span>',
-});
-savetilesControl.addTo(map);
-
-// events while saving a tile layer
-let progress, total;
-const showProgress = () => {
-  let progressPct = Math.round(progress/total*100);
-  if(progress === total) {
-    flash("Tiles have been saved")
-  } else if(progressPct % 5 === 0) {
-    // show progress every 5%
-    flash(`Saving tiles ${progressPct}%`)
-  }
-};
-
-baseLayer.on('savestart', (e) => {
-  progress = 0;
-  total = e._tilesforSave.length;
-  flash(`Saving tiles 0%`)
-});
-
-baseLayer.on('savetileend', () => {
-  progress += 1;     
-  showProgress();
-});
 
 
 
@@ -352,7 +308,7 @@ L.Control.Pace = L.Control.extend({
       this.$div = $div;
       $div.innerHTML = `
         <a class="leaflet-bar-part leaflet-bar-part-single" title="" href="#" role="button">
-          <span style="font-size: 1.5rem;">
+          <span style="font-size: 1.25rem;">
             ⏱
           </span>
         </a>
@@ -369,3 +325,49 @@ L.control.pace = function(opts) {
     return new L.Control.Pace(opts);
 }
 L.control.pace({ position: 'topleft' }).addTo(map);
+
+
+
+// Offline control for tiles
+const savetilesControl = L.control.savetiles(baseLayer, {
+  // zoomlevels: [11, 12, 13, 14, 15, 16], // optional zoomlevels to save, default current zoomlevel
+  zoomlevels: [10, 11, 15],
+  confirm(layer, successCallback) {
+    // eslint-disable-next-line no-alert
+    if (window.confirm(`Save ${layer._tilesforSave.length} tiles?`)) {
+      successCallback();
+    }
+  },
+  confirmRemoval(layer, successCallback) {
+    // eslint-disable-next-line no-alert
+    if (window.confirm('Remove all the tiles?')) {
+      successCallback();
+    }
+  },
+  saveText: '<span style="font-size: 1rem">💾</span>',
+  rmText: '<span style="font-size: 1rem">🗑</span>',
+});
+savetilesControl.addTo(map);
+
+// events while saving a tile layer
+let progress, total;
+const showProgress = () => {
+  let progressPct = Math.round(progress/total*100);
+  if(progress === total) {
+    flash("Tiles have been saved")
+  } else if(progressPct % 5 === 0) {
+    // show progress every 5%
+    flash(`Saving tiles ${progressPct}%`)
+  }
+};
+
+baseLayer.on('savestart', (e) => {
+  progress = 0;
+  total = e._tilesforSave.length;
+  flash(`Saving tiles 0%`)
+});
+
+baseLayer.on('savetileend', () => {
+  progress += 1;     
+  showProgress();
+});
