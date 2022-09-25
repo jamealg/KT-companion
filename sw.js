@@ -7,7 +7,6 @@ const contentToCache = [
   '/data/knobstone-sites.gpx',
   '/img/icon.png',
   '/favicon.ico',
-  '/img/markers',
   '/img/markers/andre.png',
   '/img/markers/campground.png',
   '/img/markers/chris.png',
