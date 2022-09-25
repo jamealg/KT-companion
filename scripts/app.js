@@ -66,11 +66,13 @@ map.on('zoomend', () => {
   }
 });
 
+// Write geo coordinates to clipboard on tap
 map.on('click', function(e){
-    // var marker = new L.marker(e.latlng).addTo(map);
+  // var marker = new L.marker(e.latlng).addTo(map);
   let lat = e.latlng.lat.toFixed(7);
   let lng = e.latlng.lng.toFixed(7);
-  console.log(`<wpt lat="${lat}" lon="${lng}">`)
+  let latlng = `${lat}, ${lng}`;
+  navigator.clipboard.writeText(latlng);
 });
 
 // Add locate control
