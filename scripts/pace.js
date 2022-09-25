@@ -68,6 +68,10 @@ const rowTpl2 = (label, row1, row2) => (`
     </div>
   </li>
 `);
+const opMetaDataTpl = {
+  milesHiked: 0.1,
+  milesRemaining: 1,
+};
 
 // Elements
 let $h = document.querySelector('h2');
@@ -99,7 +103,9 @@ let $milesRemainingInput = document.querySelector('[data-miles-remaining-input]'
 // Global State
 let day = dayjs();
 let dayKey = day.format(headerFormat);
+let dayMetaKey = `${dayKey}-meta`;
 let opData = [];
+let opMetaData = opMetaDataTpl;
 
 // Controls
 $nextBtn.addEventListener('click', () => {
@@ -149,6 +155,10 @@ function changeDay(newDate) {
   dayKey = newDate.format(headerFormat);
   $h.innerText = dayKey;
 
+  dayMetaKey = `${dayKey}-meta`;
+  opMetaData = store.get(dayMetaKey) || opMetaDataTpl;
+  updateMeta();
+
   opData = store.get(dayKey) || [];
   if(opData.length) {
     console.log('Found', opData);
@@ -159,6 +169,14 @@ function changeDay(newDate) {
   }
   updateControls();
   updateStats();
+}
+
+function updateMeta() {
+  // Inputs
+  let milesHiked = opMetaData["milesHiked"] || 0;
+  $milesHikedInput.value = milesHiked;
+  let milesRemaining = opMetaData["milesRemaining"] || 0;
+  $milesRemainingInput.value = milesRemaining;
 }
 
 function resetTable() {
@@ -191,6 +209,8 @@ function populateTable(data) {
     }
   }
   $eventsTable.innerHTML = rowsHtml;
+  // Scroll to bottom of table
+  $eventsTable.parentElement.scrollTop = $eventsTable.parentElement.scrollHeight;
 }
 
 function updateControls() {
@@ -243,7 +263,7 @@ function updateControls() {
 
 function updateStats() {
   let events = opData;
-  let totalSeconds = 0;;
+  let totalSeconds = 0;
   let hikeSeconds = 0;
   let breakSeconds = 0;
   if(events.length > 1) {
@@ -288,8 +308,17 @@ function updateStats() {
   $estCompletionHiking.innerText = `${dayjs().add(minsLeftHiking, 'minutes').format(eventFormat)} (${(minsLeftHiking/60).toFixed(1)} hours)`;
 }
 
-$milesHikedInput.addEventListener('change', updateStats);
-$milesRemainingInput.addEventListener('change', updateStats);
+function handleInputChange() {
+  opMetaData = {
+    milesHiked: $milesHikedInput.value,
+    milesRemaining: $milesRemainingInput.value,
+  }
+  store.set(dayMetaKey, opMetaData);
+  updateStats();
+}
+
+$milesHikedInput.addEventListener('change', handleInputChange);
+$milesRemainingInput.addEventListener('change', handleInputChange);
 
 
 // Init with today's date
