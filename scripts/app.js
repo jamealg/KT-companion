@@ -87,6 +87,8 @@ let baseLayer = L.tileLayer
   })
   .addTo(map);
 
+let radar = L.control.radar({}).addTo(map);
+
 // Elevation control
 var elevation_options = {
 

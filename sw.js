@@ -5,6 +5,7 @@ const contentToCache = [
   '/data/knobstone-trail-kt.gpx',
   '/img/icon.png',
   '/scripts/app.js',
+  '/scripts/lib/leaflet-radar.js',
   '/styles/app.css',
   'https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet-src.min.js',
   'https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.76.1/src/L.Control.Locate.min.js',
