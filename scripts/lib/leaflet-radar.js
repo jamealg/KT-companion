@@ -50,7 +50,8 @@ L.Control.Radar = L.Control.extend({
 
         checkbox_div.appendChild(this.checkbox);
 
-        let checkbox_label = document.createElement(`span`);
+        let checkbox_label = document.createElement(`label`);
+        checkbox_label.setAttribute('for', "leaflet-radar-toggle");
         checkbox_label.innerText = `Radar`;
 
         checkbox_div.appendChild(checkbox_label);
@@ -93,7 +94,7 @@ L.Control.Radar = L.Control.extend({
     },
 
     setDisabled: function (disabled) {
-        this.slider.disabled = disabled;
+        this.slider.style.display = disabled ? "none" : "inline-block";
         this.timestamp_div.innerText = ``;
     },
 

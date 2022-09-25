@@ -161,7 +161,7 @@ img.leaflet-marker-icon {
   background-clip: padding-box;
   
   padding: 5px;
-  /*height: 67.5px;*/
+  width: 178px;
 }
 
 .leaflet-radar .leaflet-radar-timestamp {
