@@ -254,7 +254,7 @@ function updateControls() {
   } else {
     $estimateRow.style.display = "none";
   }
-  if(opData.length > 1) {
+  if(opData.length > 0) {
     $paceRow.style.display = "block";
   } else {
     $paceRow.style.display = "none";
@@ -267,9 +267,6 @@ function updateStats() {
   let hikeSeconds = 0;
   let breakSeconds = 0;
   if(events.length > 1) {
-    totalSeconds = dayjs(events[events.length-1].date).diff(events[0].date);
-    $totalTime.innerText = dayjs.duration(totalSeconds).format('HH:mm:ss');
-    
     let lastDate = events[0].date;
     for(let i=1; i<events.length; i++) {
       let event = events[i];
@@ -283,8 +280,26 @@ function updateStats() {
         breakSeconds += secs;
       }
     }
+
+    let lastEvent = events[events.length-1];
+    if(lastEvent.event === "begin" || lastEvent.event === "resume") {
+      totalSeconds = dayjs().diff(events[0].date);
+      hikeSeconds += dayjs().diff(lastEvent.date);
+    } else if(lastEvent.event === "pause") {
+      totalSeconds = dayjs().diff(events[0].date);
+      breakSeconds += dayjs().diff(dayjs(lastEvent.date));
+    } else {
+      totalSeconds = dayjs(lastEvent.date).diff(events[0].date);
+    }
+
+    $totalTime.innerText = dayjs.duration(totalSeconds).format('HH:mm:ss');
     $hikeTime.innerText = dayjs.duration(hikeSeconds).format('HH:mm:ss');
     $breaksTime.innerText = dayjs.duration(breakSeconds).format('HH:mm:ss');
+  } else if(events.length === 1) {
+    totalSeconds = hikeSeconds = dayjs().diff(events[0].date);
+    $hikeTime.innerText = dayjs.duration(hikeSeconds).format('HH:mm:ss');
+    $totalTime.innerText = $hikeTime.innerText;
+    $breaksTime.innerText = "N/A";
   } else {
     $hikeTime.innerText = "N/A";
     $breaksTime.innerText = "N/A";
