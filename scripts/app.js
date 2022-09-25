@@ -1,12 +1,12 @@
 // Service worker
 
-// if ('serviceWorker' in navigator) {
-//   const x = navigator.serviceWorker.register('/sw.js').then((registration) => {
-//     console.log('Service worker registration succeeded:', registration);
-//   }, /*catch*/ (error) => {
-//     console.error(`Service worker registration failed: ${error}`);
-//   });
-// }
+if ('serviceWorker' in navigator) {
+  const x = navigator.serviceWorker.register('/sw.js').then((registration) => {
+    console.log('Service worker registration succeeded:', registration);
+  }, /*catch*/ (error) => {
+    console.error(`Service worker registration failed: ${error}`);
+  });
+}
 
 // util
 function flash(key) {
@@ -45,8 +45,8 @@ function flash(key) {
 // Map
 var map = L.map('map', {
   attributionControl: false,
-  zoomControl: true,
-  minZoom: 10,
+  zoomControl: false,
+  // minZoom: 10,
   maxZoom: 16,
   zoomSnap: 0.1,
 });
@@ -83,7 +83,7 @@ let urlTemplate = 'https://services.arcgisonline.com/ArcGIS/rest/services/World_
 let baseLayer = L.tileLayer
   .offline(urlTemplate, {
     attribution: '',
-    minZoom: 10,
+    minZoom: 11,
   })
   .addTo(map);
 
