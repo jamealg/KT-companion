@@ -141,6 +141,7 @@ $resetBtn.addEventListener('click', () => {
     updateControls();
     updateStats();
     updateMeta();
+    resetTable();
   }
 })
 
