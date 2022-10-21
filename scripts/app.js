@@ -48,7 +48,7 @@ function flash(key) {
 var map = L.map('map', {
   attributionControl: false,
   zoomControl: false,
-  minZoom: 10,
+  minZoom: 9,
   maxZoom: 16,
   zoomSnap: 0.1,
 });
@@ -77,7 +77,8 @@ map.on('click', function(e){
   navigator.clipboard.writeText(latlng);
 });
 
-
+// Add locate control
+L.control.locate().addTo(map);
 
 // Tiles
 let urlTemplate = 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}.jpg';
@@ -332,7 +333,7 @@ L.control.pace({ position: 'topleft' }).addTo(map);
 // Offline control for tiles
 const savetilesControl = L.control.savetiles(baseLayer, {
   // zoomlevels: [11, 12, 13, 14, 15, 16], // optional zoomlevels to save, default current zoomlevel
-  zoomlevels: [10, 11, 15],
+  zoomlevels: [10, 11, 13, 14, 15],
   confirm(layer, successCallback) {
     // eslint-disable-next-line no-alert
     if (window.confirm(`Save ${layer._tilesforSave.length} tiles?`)) {
