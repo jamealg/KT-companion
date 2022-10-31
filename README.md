@@ -2,9 +2,9 @@
 
 A knowledge-of-the-trail companion app, originally developed for my backpacking trip on the Knobstone Trail in my home state of southern Indiana. Consider it a fully customizable alternative to something like *AllTrails* or *HikingProject*.
 
-![Animated screenshot demo of the app](https://prj.jameals.com/kt/kt-app-demo.gif)
-
 🔗 [Try it out here](https://kt-companion.vercel.app/).
+
+![Animated screenshot demo of the app](https://prj.jameals.com/kt/kt-app-demo.gif)
 
 This project was rapidly developed over the course of two weeks. Although it served me well on my trip, it is not advisable to rely on  it as your only resource. You should always research your trip ahead of time, plan training hikes, become familiar with the terrain, carry a physical compass and map and know how to use them.
 
