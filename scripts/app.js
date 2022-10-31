@@ -90,18 +90,6 @@ let baseLayer = L.tileLayer
   .addTo(map);
 
 
-// Radar
-let radar = L.control.radar({}).addTo(map);
-let $radar = document.querySelector('.leaflet-radar');
-window.addEventListener('offline', function(e) { 
-  $radar.style.display = "none";
-});
-
-window.addEventListener('online', function(e) { 
-  $radar.style.display = "block";
-});
-
-
 // Elevation control
 var elevation_options = {
 

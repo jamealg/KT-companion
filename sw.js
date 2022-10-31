@@ -17,7 +17,6 @@ const contentToCache = [
   '/img/markers/water.png',
   '/scripts/app.js',
   '/scripts/pace.js',
-  '/scripts/lib/leaflet-radar.js',
   '/styles/app.css',
   '/styles/pace.css',
   'https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet-src.min.js',
