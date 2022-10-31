@@ -220,7 +220,7 @@ let lastTap;
 $elWrapper.addEventListener('click', () => {
   let now = new Date().getTime();
   let timesince = now - lastTap;
-  if ((timesince < 800) && (timesince > 0)){
+  if ((timesince < 400) && (timesince > 0)){
      // double tap  
     handleZoomToggle();
   }
