@@ -1,5 +1,4 @@
 # KT Companion
-![KT Icon](img/icon.png)
 
 A knowledge-of-the-trail companion app, originally developed for my backpacking trip on the Knobstone Trail in my home state of southern Indiana. Consider it a fully customizable alternative to something like *AllTrails* or *HikingProject*.
 
