@@ -46,7 +46,7 @@ function flash(key) {
 
 // Map
 var map = L.map('map', {
-  attributionControl: false,
+  attributionControl: true,
   zoomControl: false,
   minZoom: 9,
   maxZoom: 16,
@@ -84,7 +84,7 @@ L.control.locate().addTo(map);
 let urlTemplate = 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}.jpg';
 let baseLayer = L.tileLayer
   .offline(urlTemplate, {
-    attribution: '',
+    attribution: 'Relief maps from <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer">ESRI/ArcGIS</a>'
     // minZoom: 11,
   })
   .addTo(map);
