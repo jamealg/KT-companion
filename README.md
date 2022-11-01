@@ -10,7 +10,7 @@ This project was rapidly developed over the course of two weeks. Although it ser
 
 It relies heavily on the wonderful open-source map library [Leaflet](https://leafletjs.com/) and many more plugins from the Leaflet community.
 
-## ⭐️ Features:
+## ⭐️ Features
 - **Toggle location marker** - Save battery life by only turning on location when you need it.
 - **Offline-ready including map tiles** - Hold your device in landscape mode and press the 💾 button to download visible map tiles.
 - **Fullscreen app experience** - For Android devices (not sure about Safari iOS).
@@ -19,7 +19,7 @@ It relies heavily on the wonderful open-source map library [Leaflet](https://lea
 - **No complicated build configuration** - All third-party libraries are loaded via CDN. Bring your own build tools if you need it.
 - **Tap the map to copy coordinates** - Then paste into your notes app.
 
-## 🎨 Customization and deployment instructions
+## 🎨 Customization and deployment
 1. Fork the project or download the code directly
 2. Replace the contents of `knobstone-trail-kt.gpx` with your own GPX data *(you can often find GPX files for popular trails online, download the GPX from your smartwatch, or use a tool like [the excellent GPS Visualizer](https://www.gpsvisualizer.com/) to draw your trail directly on a map)*
 3. Replace the content of `knobstone-sites.gpx` to customize markers
